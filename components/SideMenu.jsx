@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { BsYoutube } from "react-icons/bs";
@@ -14,28 +14,55 @@ const SideMenu = () => {
   const [activeLink, setActiveLink] = useState(sidebarMenuLinks[0]);
   const { isOpen, closeMobileMenu } = useMenuStore();
 
-  const handleLinkClick = (link) => {
-    closeMobileMenu();
-    setActiveLink(link);
-  };
-
-  const handleScroll = () => {
-    const sections = sidebarMenuLinks.map((link) =>
-      document.getElementById(link.sectionId)
-    );
-
-    const scrollPosition = window.scrollY;
-
-    for (let i = sections.length - 1; i >= 0; i--) {
-      const section = sections[i];
-      if (section) {
-        if (section.offsetTop <= scrollPosition + 100) {
-          setActiveLink(sidebarMenuLinks[i]);
-          break;
-        }
-      }
+  // Separate function for updating the active link
+  const updateActiveLink = (sectionId) => {
+    const activeLink = sidebarMenuLinks.find(link => link.sectionId === sectionId);
+    if (activeLink) {
+      setActiveLink(activeLink);
     }
   };
+
+  const handleLinkClick = (link, event) => {
+    event.preventDefault();
+    closeMobileMenu();
+    updateActiveLink(link.sectionId); // Update active link immediately
+
+    const section = document.getElementById(link.sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Debounced scroll handler
+  const debounce = (func, delay) => {
+    let inDebounce;
+    return function() {
+      const context = this;
+      const args = arguments;
+      clearTimeout(inDebounce);
+      inDebounce = setTimeout(() => func.apply(context, args), delay);
+    };
+  };
+
+  const handleScroll = debounce(() => {
+    const scrolledPosition = window.scrollY + window.innerHeight / 2;
+  
+    let isTopSectionActive = true;
+  
+    for (let i = 0; i < sidebarMenuLinks.length; i++) {
+      const sectionId = sidebarMenuLinks[i].sectionId;
+      const section = document.getElementById(sectionId);
+      if (section && scrolledPosition >= section.offsetTop && scrolledPosition <= section.offsetTop + section.offsetHeight) {
+        updateActiveLink(sectionId);
+        isTopSectionActive = false;
+        break;
+      }
+    }
+  
+    if (isTopSectionActive) {
+      updateActiveLink(sidebarMenuLinks[0].sectionId);
+    }
+  }, 100);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -95,7 +122,7 @@ const SideMenu = () => {
                   className={`relative flex justify-center items-center rounded-lg p-3 ${
                     isActive ? "bg-dark-red text-white" : ""
                   }`}
-                  onClick={() => handleLinkClick(link)}
+                  onClick={(e) => handleLinkClick(link, e)} // Pass the event object
                 >
                   <p>{link.label}</p>
                 </a>
