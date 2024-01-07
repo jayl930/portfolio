@@ -6,8 +6,8 @@ import Image from "next/image";
 import { BsYoutube } from "react-icons/bs";
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 import { FaDev } from "react-icons/fa";
-import useMenuStore from "../Store/useMenuStore";
-import { sidebarMenuLinks } from "../constants";
+import { useMenuStore } from "@/Store/useMenuStore";
+import { sidebarMenuLinks } from "@/constants";
 
 const SideMenu = () => {
   const pathname = usePathname();
