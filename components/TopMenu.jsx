@@ -3,7 +3,7 @@ import Link from "next/link";
 import { AiOutlineClose } from "react-icons/ai";
 import { RiMenu3Fill } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
-import useMenuStore from "../store/useMenuStore";
+import useMenuStore from "../Store/useMenuStore";
 
 const TopMenu = () => {
   const { isOpen, toggleMenu } = useMenuStore();
