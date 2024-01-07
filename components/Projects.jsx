@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ProjectFilter from "./PorjectFilter";
 import ProjectCard from "./ProjectCard";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -42,20 +43,25 @@ const Projects = () => {
           activeCategory={activeCategory}
           setActiveCategory={setActiveCategory}
         />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {filtered.slice(0, visibleProjects).map((project, index) => (
-            <ProjectCard
-              key={index}
-              name={project.name}
-              githubUrl={project.githubUrl}
-              image={project.image}
-              youtube={project.youtube}
-              deployed={project.deployed}
-              youtubeUrl={project.youtubeUrl}
-              projectUrl={project.projectUrl}
-            />
-          ))}
-        </div>
+        <motion.div
+          layout
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+        >
+          <AnimatePresence>
+            {filtered.slice(0, visibleProjects).map((project, index) => (
+              <ProjectCard
+                key={index}
+                name={project.name}
+                githubUrl={project.githubUrl}
+                image={project.image}
+                youtube={project.youtube}
+                deployed={project.deployed}
+                youtubeUrl={project.youtubeUrl}
+                projectUrl={project.projectUrl}
+              />
+            ))}
+          </AnimatePresence>
+        </motion.div>
         {visibleProjects < filtered.length && (
           <div className="text-center mt-4">
             <button

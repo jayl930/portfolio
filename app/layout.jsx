@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={poppins.className}>
         <main className="flex flex-row">
-          {/* <SideMenu /> */}
+          <SideMenu />
           <section className="overflow-hidden pl-[300px] max-lg:pl--[146px] w-full min-h-screen max-md:pl-0">
             <TopMenu />
             {children}

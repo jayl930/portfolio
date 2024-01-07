@@ -1,7 +1,7 @@
 import { AiFillGithub, AiFillYoutube, AiFillEye } from "react-icons/ai";
 import { TfiYoutube } from "react-icons/tfi";
 import Image from "next/image";
-import Link from "next/link";
+import { motion } from "framer-motion";
 
 const ProjectCard = ({
   name,
@@ -13,7 +13,13 @@ const ProjectCard = ({
   projectUrl,
 }) => {
   return (
-    <div className="mb-4 p-4 border border-gray-200 rounded-lg shadow-md bg-light-bg">
+    <motion.div
+      layout
+      animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
+      exit={{ opacity: 0 }}
+      className="mb-4 p-4 border border-gray-200 rounded-lg shadow-md bg-light-bg"
+    >
       <img
         src={image}
         alt={`${name} Image`}
@@ -52,7 +58,7 @@ const ProjectCard = ({
           </a>
         ) : null}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

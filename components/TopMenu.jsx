@@ -3,7 +3,7 @@ import Link from "next/link";
 import { AiOutlineClose } from "react-icons/ai";
 import { RiMenu3Fill } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
-import { useMenuStore } from "@/Store/useMenuStore";
+import { useMenuStore } from "@/store/useMenuStore";
 
 const TopMenu = () => {
   const { isOpen, toggleMenu } = useMenuStore();
@@ -29,7 +29,7 @@ const TopMenu = () => {
           <div className="flex md:gap-10 flex-col md:flex-row">
             <div className="flex gap-1 items-center text-sm font-bold">
               <MdEmail />
-              <span className="text-dark-blue">jaeyounglee9030@gmail.com</span>
+              <span className="text-dark-blue">leejaeyoung930@gmail.com</span>
             </div>
           </div>
 
