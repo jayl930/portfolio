@@ -6,7 +6,7 @@ import Image from "next/image";
 import { BsYoutube } from "react-icons/bs";
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 import { FaDev } from "react-icons/fa";
-import { useMenuStore } from "../store/useMenuStore";
+import useMenuStore from "../store/useMenuStore";
 import { sidebarMenuLinks } from "../constants";
 
 const SideMenu = () => {
