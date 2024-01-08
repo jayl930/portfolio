@@ -107,7 +107,7 @@ const SideMenu = () => {
         <div className="flex w-full flex-1 flex-col gap-10 justify-between items-center">
           <div className="flex justify-center items-center flex-col gap-2">
             <Image
-              src="/assets/sidemenu.png"
+              src="/assets/me/sidemenu.png"
               width={100}
               height={100}
               alt="Jay"
