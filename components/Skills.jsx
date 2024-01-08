@@ -30,7 +30,7 @@ const Skills = () => {
         <div className="grid md:grid-cols-4 gap-5 grid-cols-2 max-xs:grid-cols-1 mt-10">
           <div className="bg-light-bg p-8  rounded-md text-center flex flex-col items-center shadow-sm justify-center">
             <Image
-              src="/assets/python.png"
+              src="/assets/skills/python.png"
               width={95}
               height={95}
               alt="Python"
@@ -40,7 +40,7 @@ const Skills = () => {
           </div>
           <div className="bg-light-bg p-8  rounded-md text-center flex flex-col items-center shadow-sm justify-center">
             <Image
-              src="/assets/SQL.png"
+              src="/assets/skills/SQL.png"
               width={100}
               height={100}
               alt="SQL"
@@ -50,7 +50,7 @@ const Skills = () => {
           </div>
           <div className="bg-light-bg p-8  rounded-md text-center flex flex-col items-center shadow-sm justify-center">
             <Image
-              src="/assets/htmlcss.png"
+              src="/assets/skills/htmlcss.png"
               width={100}
               height={100}
               alt="htmlcss"
@@ -60,7 +60,7 @@ const Skills = () => {
           </div>
           <div className="bg-light-bg p-8 rounded-md text-center flex flex-col items-center shadow-sm justify-center">
             <Image
-              src="/assets/R.png"
+              src="/assets/skills/R.png"
               width={100}
               height={100}
               alt="R"
@@ -80,7 +80,7 @@ const Skills = () => {
           </div>
           <div className="bg-light-bg p-8  rounded-md text-center flex flex-col items-center shadow-sm justify-center">
             <Image
-              src="/assets/mongo.png"
+              src="/assets/skills/mongo.png"
               width={100}
               height={100}
               alt="mongo"
@@ -90,7 +90,7 @@ const Skills = () => {
           </div>
           <div className="bg-light-bg p-8  rounded-md text-center flex flex-col items-center shadow-sm justify-center">
             <Image
-              src="/assets/SQL.png"
+              src="/assets/skills/SQL.png"
               width={100}
               height={100}
               alt="sql"
@@ -100,7 +100,7 @@ const Skills = () => {
           </div>
           <div className="bg-light-bg p-8  rounded-md text-center flex flex-col items-center shadow-sm justify-center">
             <Image
-              src="/assets/Git.png"
+              src="/assets/skills/Git.png"
               width={100}
               height={100}
               alt="git"
