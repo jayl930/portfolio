@@ -1,5 +1,4 @@
 import { AiFillGithub, AiFillYoutube, AiFillEye } from "react-icons/ai";
-import { TfiYoutube } from "react-icons/tfi";
 import Image from "next/image";
 import { motion } from "framer-motion";
 

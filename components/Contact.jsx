@@ -34,7 +34,7 @@ const Contact = () => {
 
   return (
     <div
-      className="w-full h-fit px-[40px] py-20 pt-40 max-xs:px-[20px] relative bg-light-bg"
+      className="w-full h-fit px-[40px] py-10 md:py-20 max-xs:px-[20px] relative bg-light-bg"
       id="contact"
     >
       <div className="max-w-[1250px] mx-auto">

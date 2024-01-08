@@ -5,7 +5,7 @@ export const useMenuStore = create(
   persist(
     (set) => ({
       isOpen: false,
-      toggleMenu: () => set((state) => ({ isOpen: !state.menu })),
+      toggleMenu: () => set((state) => ({ isOpen: !state.isOpen })),
       closeMobileMenu: () => set({ isOpen: false }),
     }),
     {

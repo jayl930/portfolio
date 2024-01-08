@@ -3,20 +3,20 @@
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { BsYoutube } from "react-icons/bs";
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
-import { FaDev } from "react-icons/fa";
 import { useMenuStore } from "@/Store/useMenuStore";
 import { sidebarMenuLinks } from "@/constants";
+import "@/app/animations.css";
 
 const SideMenu = () => {
   const pathname = usePathname();
   const [activeLink, setActiveLink] = useState(sidebarMenuLinks[0]);
   const { isOpen, closeMobileMenu } = useMenuStore();
 
-  // Separate function for updating the active link
   const updateActiveLink = (sectionId) => {
-    const activeLink = sidebarMenuLinks.find(link => link.sectionId === sectionId);
+    const activeLink = sidebarMenuLinks.find(
+      (link) => link.sectionId === sectionId
+    );
     if (activeLink) {
       setActiveLink(activeLink);
     }
@@ -29,14 +29,14 @@ const SideMenu = () => {
 
     const section = document.getElementById(link.sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+      section.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   // Debounced scroll handler
   const debounce = (func, delay) => {
     let inDebounce;
-    return function() {
+    return function () {
       const context = this;
       const args = arguments;
       clearTimeout(inDebounce);
@@ -46,19 +46,23 @@ const SideMenu = () => {
 
   const handleScroll = debounce(() => {
     const scrolledPosition = window.scrollY + window.innerHeight / 2;
-  
+
     let isTopSectionActive = true;
-  
+
     for (let i = 0; i < sidebarMenuLinks.length; i++) {
       const sectionId = sidebarMenuLinks[i].sectionId;
       const section = document.getElementById(sectionId);
-      if (section && scrolledPosition >= section.offsetTop && scrolledPosition <= section.offsetTop + section.offsetHeight) {
+      if (
+        section &&
+        scrolledPosition >= section.offsetTop &&
+        scrolledPosition <= section.offsetTop + section.offsetHeight
+      ) {
         updateActiveLink(sectionId);
         isTopSectionActive = false;
         break;
       }
     }
-  
+
     if (isTopSectionActive) {
       updateActiveLink(sidebarMenuLinks[0].sectionId);
     }
@@ -132,20 +136,14 @@ const SideMenu = () => {
           <div className="flex items-center flex-col justify-center text-center">
             <div className="flex flex-col lg:flex-row items-center gap-4 mb-3">
               <a href="/" target="_blank" className="social-icon text-white">
-                <BsYoutube />
-              </a>
-              <a href="/" target="_blank" className="social-icon text-white">
                 <AiFillLinkedin />
               </a>
               <a href="/" target="_blank" className="social-icon text-white">
                 <AiFillGithub />
               </a>
-              <a href="/" target="_blank" className="social-icon text-white">
-                <FaDev />
-              </a>
             </div>
-            <p className="max-lg:hidden">
-              Copyright © 2023 Jae Young Lee. All rights reserved.
+            <p className="max-lg:hidden text-xs md:pt-5">
+              Copyright © 2024 Jae Young Lee. All rights reserved.
             </p>
           </div>
         </div>

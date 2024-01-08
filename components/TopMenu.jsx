@@ -20,7 +20,7 @@ const TopMenu = () => {
             </Link>
           </div>
 
-          <div className="text-2xl z-50" onClick={toggleMenu}>
+          <div className="text-2xl z-50 cursor-pointer hover:text-dark-red transition-colors duration-200" onClick={toggleMenu}>
             {isOpen ? <AiOutlineClose /> : <RiMenu3Fill />}
           </div>
         </div>
@@ -34,7 +34,9 @@ const TopMenu = () => {
           </div>
 
           <button className="bg-dark-blue text-white px-4 py-1 rounded-md hover:bg-dark-blue/75">
-            Download CV
+            <a href="">
+              View CV
+            </a>
           </button>
         </div>
       </div>
