@@ -70,7 +70,7 @@ const Skills = () => {
           </div>
           <div className="bg-light-bg p-8  rounded-md text-center flex flex-col items-center shadow-sm justify-center">
             <Image
-              src="/assets/node.png"
+              src="/assets/skills/node.png"
               width={100}
               height={100}
               alt="node"
@@ -100,7 +100,7 @@ const Skills = () => {
           </div>
           <div className="bg-light-bg p-8  rounded-md text-center flex flex-col items-center shadow-sm justify-center">
             <Image
-              src="/assets/skills/Git.png"
+              src="/assets/skills/git.png"
               width={100}
               height={100}
               alt="git"

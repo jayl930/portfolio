@@ -2,15 +2,7 @@ import { AiFillGithub, AiFillYoutube, AiFillEye } from "react-icons/ai";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const ProjectCard = ({
-  name,
-  githubUrl,
-  image,
-  youtube,
-  deployed,
-  youtubeUrl,
-  projectUrl,
-}) => {
+const ProjectCard = ({ name, githubUrl, image, deployed, projectUrl }) => {
   return (
     <motion.div
       layout
@@ -32,21 +24,12 @@ const ProjectCard = ({
           className="text-dark-blue p-1 rounded-full text-xl"
         >
           <Image
-            src="/assets/git.svg.png"
+            src="/assets/skills/git.svg.png"
             width={20}
             height={20}
             alt="github"
           />
         </a>
-        {youtube ? (
-          <a
-            href={youtubeUrl}
-            target="_blank"
-            className="text-dark-blue hover:underline text-2xl"
-          >
-            <AiFillYoutube />
-          </a>
-        ) : null}
         {deployed ? (
           <a
             href={projectUrl}
